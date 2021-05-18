@@ -10,7 +10,7 @@ echo "COPYING ~/.config/nvim"
 cp -Rf .config/nvim/ ~/.config/nvim/
 
 # Every files are list in this directory will be automatically  
-# sync from source eg. ~/.bash_profile
+# sync TO source eg. ~/.bash_profile
 
 # these files/directory will not be sync
 exclude=(".git .config")
@@ -23,5 +23,5 @@ for file in ~/dotfiles/.[^.]*; do
 	fi
 done
 
-echo "Install DONE"
 echo "============================="
+echo "Install DONE"
