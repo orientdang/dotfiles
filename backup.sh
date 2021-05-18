@@ -1,9 +1,6 @@
 #!/bin/sh
 
 # git pull origin master
-
-mkdir -p ~/dotfiles
-cd ~/dotfiles
 # Bachup nvim
 echo "COPYING ~/.config/nvim"
 # rm -rf .config && mkdir .config && mkdir .config/nvim 
