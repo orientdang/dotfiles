@@ -6,7 +6,7 @@
 echo "Backup ~/.config/nvim"
 # rm -rf .config && mkdir .config && mkdir .config/nvim 
 cp -Rf ~/.config/nvim/ .config/nvim/
-cd .config/nvim && rm -rf .git .github .gitignore .README.md
+cd .config/nvim && rm -rf .git .github .gitignore README.md
 cd ~/dotfiles
 
 # Every files are list in this directory will be automatically  
