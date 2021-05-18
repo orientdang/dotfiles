@@ -4,7 +4,7 @@
 
 # Bachup nvim
 echo "Backup ~/.config/nvim"
-rm -rf .config && mkdir .config && mkdir .config/nvim 
+# rm -rf .config && mkdir .config && mkdir .config/nvim 
 cp -R ~/.config/nvim/ .config/nvim/
 cd .config/nvim && rm -rf .git .github .gitignore .README.md
 cd ~/dotfiles
