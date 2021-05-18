@@ -73,7 +73,10 @@ return require("packer").startup(
         use {"kevinhwang91/nvim-bqf", opt = true}
 
         -- Color
-        use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+        -- use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+		use {"fenetikm/falcon", opt = true}
+		use {"haishanh/night-owl.vim", opt = true}
+
 
         -- Icons
         use {"kyazdani42/nvim-web-devicons", opt = true}
@@ -101,7 +104,7 @@ return require("packer").startup(
         require_plugin("nvim-autopairs")
         require_plugin("nvim-comment")
         require_plugin("nvim-bqf")
-        require_plugin("nvcode-color-schemes.vim")
+        -- require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")
