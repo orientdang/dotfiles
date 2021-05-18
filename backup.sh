@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir -p ~/dotfiles && cd ~/dotfiles
+git clone git@github.com:orientdang/dotfiles.git ./
 # git pull origin master
 # Bachup nvim
 echo "COPYING ~/.config/nvim"
