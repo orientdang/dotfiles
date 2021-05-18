@@ -3,7 +3,7 @@
 # git pull origin master
 
 # Bachup nvim
-echo "Backup ~/.config/nvim"
+echo "COPYING ~/.config/nvim"
 # rm -rf .config && mkdir .config && mkdir .config/nvim 
 cp -Rf ~/.config/nvim/ .config/nvim/
 cd .config/nvim && rm -rf .git .github .gitignore README.md
@@ -18,13 +18,13 @@ exclude=(".git .config")
 for file in ~/dotfiles/.[^.]*; do
 	filename="$(basename "$file")"
 	if [[ ! " ${exclude[*]} " =~ "$filename" ]]; then
-		echo "copying ${filename}....."
+		echo "COPYING ${filename}....."
 		cp -rf ~/${filename} ${filename}
 	fi
 done
 
-echo "============================="
 echo "Backup files done, commiting...."
+echo "============================="
 
 git add . -A
 git commit -m "Backup at $(date)"
