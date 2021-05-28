@@ -85,6 +85,14 @@ return require("packer").startup(
         use {"glepnir/galaxyline.nvim", opt = true}
         use {"romgrk/barbar.nvim", opt = true}
 
+		-- easy motion
+		use {"easymotion/vim-easymotion", opt = true}
+
+		-- Git
+		use {"tpope/vim-fugitive", opt = true}
+
+		require_plugin("vim-fugitive")
+		require_plugin("vim-easymotion")
         require_plugin("nvim-lspconfig")
         require_plugin("lspsaga.nvim")
         require_plugin("nvim-lspinstall")

@@ -8,17 +8,17 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
 
 -- TODO fix this
 -- Terminal window navigation
-vim.cmd([[
-  tnoremap <C-h> <C-\><C-N><C-w>h
-  tnoremap <C-j> <C-\><C-N><C-w>j
-  tnoremap <C-k> <C-\><C-N><C-w>k
-  tnoremap <C-l> <C-\><C-N><C-w>l
-  inoremap <C-h> <C-\><C-N><C-w>h
-  inoremap <C-j> <C-\><C-N><C-w>j
-  inoremap <C-k> <C-\><C-N><C-w>k
-  inoremap <C-l> <C-\><C-N><C-w>l
-  tnoremap <Esc> <C-\><C-n>
-]])
+-- vim.cmd([[
+--   tnoremap <C-h> <C-\><C-N><C-w>h
+--   tnoremap <C-j> <C-\><C-N><C-w>j
+--   tnoremap <C-k> <C-\><C-N><C-w>k
+--   tnoremap <C-l> <C-\><C-N><C-w>l
+--   inoremap <C-h> <C-\><C-N><C-w>h
+--   inoremap <C-j> <C-\><C-N><C-w>j
+--   inoremap <C-k> <C-\><C-N><C-w>k
+--   inoremap <C-l> <C-\><C-N><C-w>l
+--   tnoremap <Esc> <C-\><C-n>
+-- ]])
 
 -- TODO fix this
 -- resize with arrows
@@ -41,6 +41,11 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', {noremap = true, silent = true})
 -- Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprevious<CR>', {noremap = true, silent = true})
+
+-- Auto center
+vim.api.nvim_set_keymap('n', 'i', 'zzi', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'a', 'zza', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', 'o', 'zzo', {noremap = true, silent = true})
 
 -- Move selected line / block of text in visual mode
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})

@@ -194,6 +194,11 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/telescope.nvim"
   },
+  ["vim-easymotion"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/vim-easymotion"
+  },
   ["vim-vsnip"] = {
     loaded = false,
     needs_bufread = false,
