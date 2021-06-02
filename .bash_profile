@@ -19,9 +19,11 @@ export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 
 # python 3
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # autopep8
 export PATH="$PATH:/Users/dangnh/Library/Python/3.9/bin"
 
-
+# PySpark
+export SPARK_HOME="/Users/dangnh/spark-3.1.2-bin-hadoop3.2/"
 
 export PATH="$HOME/.poetry/bin:$PATH"
