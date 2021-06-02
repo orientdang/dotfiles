@@ -1,10 +1,10 @@
-export ANDROID_HOME=/Users/dangnh/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH="$PATH:/Users/dangnh/Flutter/flutter/bin"
+export PATH="$PATH:$HOME/Flutter/flutter/bin"
 export PATH=${PATH}:/usr/local/mysql/bin/
 export PATH=~/.npm-global/bin:$PATH
 export PATH=/usr/lib/postgresql/X.Y/bin/:$PATH
@@ -21,9 +21,9 @@ export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # autopep8
-export PATH="$PATH:/Users/dangnh/Library/Python/3.9/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 
 # PySpark
-export SPARK_HOME="/Users/dangnh/spark-3.1.2-bin-hadoop3.2/"
+export SPARK_HOME="$HOME/spark-3.1.2-bin-hadoop3.2/"
 
 export PATH="$HOME/.poetry/bin:$PATH"
