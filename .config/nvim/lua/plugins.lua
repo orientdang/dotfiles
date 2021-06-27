@@ -73,9 +73,9 @@ return require("packer").startup(
         use {"kevinhwang91/nvim-bqf", opt = true}
 
         -- Color
-        -- use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
-		use {"fenetikm/falcon", opt = true}
-		use {"haishanh/night-owl.vim", opt = true}
+        use {"christianchiarulli/nvcode-color-schemes.vim", opt = true}
+		-- use {"fenetikm/falcon", opt = true}
+		-- use {"haishanh/night-owl.vim", opt = true}
 
 
         -- Icons
@@ -91,6 +91,15 @@ return require("packer").startup(
 		-- Git
 		use {"tpope/vim-fugitive", opt = true}
 
+		-- Django syntax highlight
+		use {"tweekmonster/django-plus.vim", opt = true}
+
+		-- javascript syntax
+		use {"pangloss/vim-javascript", opt = true}
+
+
+		require_plugin("vim-javascript")
+		require_plugin("django-plus.vim")
 		require_plugin("vim-fugitive")
 		require_plugin("vim-easymotion")
         require_plugin("nvim-lspconfig")
@@ -112,7 +121,7 @@ return require("packer").startup(
         require_plugin("nvim-autopairs")
         require_plugin("nvim-comment")
         require_plugin("nvim-bqf")
-        -- require_plugin("nvcode-color-schemes.vim")
+        require_plugin("nvcode-color-schemes.vim")
         require_plugin("nvim-web-devicons")
         require_plugin("galaxyline.nvim")
         require_plugin("barbar.nvim")

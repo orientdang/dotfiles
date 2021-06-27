@@ -46,7 +46,7 @@ local function save_profiles(threshold)
   _G._packer.profile_output = results
 end
 
-time("Luarocks path setup", true)
+time([[Luarocks path setup]], true)
 local package_path_str = "/Users/dangnh/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/dangnh/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/dangnh/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/dangnh/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
 local install_cpath_pattern = "/Users/dangnh/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
@@ -57,19 +57,20 @@ if not string.find(package.cpath, install_cpath_pattern, 1, true) then
   package.cpath = package.cpath .. ';' .. install_cpath_pattern
 end
 
-time("Luarocks path setup", false)
-time("try_loadstring definition", true)
+time([[Luarocks path setup]], false)
+time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
   local success, result = pcall(loadstring(s))
   if not success then
-    print('Error running ' .. component .. ' for ' .. name)
-    error(result)
+    vim.schedule(function()
+      vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
+    end)
   end
   return result
 end
 
-time("try_loadstring definition", false)
-time("Defining packer_plugins", true)
+time([[try_loadstring definition]], false)
+time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["barbar.nvim"] = {
     loaded = false,
@@ -81,10 +82,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/dashboard-nvim"
   },
-  falcon = {
+  ["django-plus.vim"] = {
     loaded = false,
-    needs_bufread = false,
-    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/falcon"
+    needs_bufread = true,
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/django-plus.vim"
   },
   ["friendly-snippets"] = {
     loaded = false,
@@ -106,10 +107,10 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim"
   },
-  ["night-owl.vim"] = {
+  ["nvcode-color-schemes.vim"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/night-owl.vim"
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvcode-color-schemes.vim"
   },
   ["nvim-autopairs"] = {
     loaded = false,
@@ -127,7 +128,7 @@ _G.packer_plugins = {
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-comment"
   },
   ["nvim-compe"] = {
-    after_files = { "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_buffer.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_calc.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_emoji.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_luasnip.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_nvim_lsp.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_nvim_lua.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_omni.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_path.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_snippets_nvim.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_spell.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_tags.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_treesitter.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_ultisnips.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_vim_lsc.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_vim_lsp.vim", "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe_vsnip.vim" },
+    after_files = { "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe/after/plugin/compe.vim" },
     loaded = false,
     needs_bufread = false,
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/nvim-compe"
@@ -199,6 +200,21 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/vim-easymotion"
   },
+  ["vim-fugitive"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/vim-fugitive"
+  },
+  ["vim-javascript"] = {
+    loaded = false,
+    needs_bufread = true,
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/vim-javascript"
+  },
+  ["vim-prettier"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/dangnh/.local/share/nvim/site/pack/packer/opt/vim-prettier"
+  },
   ["vim-vsnip"] = {
     loaded = false,
     needs_bufread = false,
@@ -211,7 +227,7 @@ _G.packer_plugins = {
   }
 }
 
-time("Defining packer_plugins", false)
+time([[Defining packer_plugins]], false)
 if should_profile then save_profiles() end
 
 END
