@@ -1,0 +1,50 @@
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set history=500
+set number
+set hlsearch
+set ideajoin
+set ignorecase
+set smartcase
+set gdefault
+set scrolloff=3
+set sidescrolloff=4
+imap jk <Esc>
+imap kj <Esc>
+
+"-------------------------------------------------------------------------------
+" IdeaVim Plugin Emulations
+"-------------------------------------------------------------------------------
+set surround
+set easymotion
+set NERDTree
+set highlightedyank
+
+" Yank from cursor to end of line, to be consistent with C and D.
+nnoremap Y y$
+
+" Easy window split navigation {{{
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-h> <C-w>h
+
+" Keep a block highlighted while shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" More like quick definition -- shows source in pop-up
+nnoremap gD :action QuickImplementations<CR>
+nnoremap gr :action Refactorings.QuickListPopupAction<CR>
+
+" move line up/down
+vnoremap J :m +1<CR>V
+vnoremap K :m -2<CR>V
+
+" easy navigation
+nmap <Tab> :action NextTab<CR>
+nmap <S-Tab> :action PreviousTab<CR>
+
+" ss{char} to use easymotion
+nmap s \\

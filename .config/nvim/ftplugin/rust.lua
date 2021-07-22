@@ -1,3 +1,21 @@
+O.formatters.filetype["rust"] = {
+  function()
+    return {
+      exe = O.lang.rust.formatter.exe,
+      args = O.lang.rust.formatter.args,
+      stdin = not (O.lang.rust.formatter.stdin ~= nil),
+    }
+  end,
+}
+
+require("formatter.config").set_defaults {
+  logging = false,
+  filetype = O.formatters.filetype,
+}
+if require("lv-utils").check_lsp_client_active "rust_analyzer" then
+  return
+end
+
 if O.lang.rust.rust_tools.active then
   local opts = {
     tools = { -- rust-tools options
@@ -28,11 +46,11 @@ if O.lang.rust.rust_tools.active then
 
         -- prefix for parameter hints
         -- default: "<-"
-        parameter_hints_prefix = "<-",
+        parameter_hints_prefix = O.lang.rust.rust_tools.parameter_hints_prefix,
 
         -- prefix for all the other hints (type, chaining)
         -- default: "=>"
-        other_hints_prefix = "=>",
+        other_hints_prefix = O.lang.rust.rust_tools.other_hints_prefix,
 
         -- whether to align to the lenght of the longest line in the file
         max_len_align = false,
@@ -77,11 +95,11 @@ else
     cmd = { DATA_PATH .. "/lspinstall/rust/rust-analyzer" },
     on_attach = require("lsp").common_on_attach,
     filetypes = { "rust" },
-    root_dir = require("lspconfig.util").root_pattern("Cargo.toml", "rust-project.json"),
+    root_dir = require("lspconfig.util").root_pattern("Carrust.toml", "rust-project.json"),
   }
 end
 
--- TODO fix these mappings
+-- TODO: fix these mappings
 vim.api.nvim_exec(
   [[
     autocmd Filetype rust nnoremap <leader>lm <Cmd>RustExpandMacro<CR>

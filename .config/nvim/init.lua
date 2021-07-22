@@ -1,54 +1,18 @@
-require('lv-globals')
-vim.cmd('luafile ~/.config/nvim/lv-settings.lua')
-require('plugins')
-require('lv-utils')
-require('lv-autocommands')
-require('settings')
-require('keymappings')
-require('colorscheme')
-require('lv-galaxyline')
-require('lv-comment')
-require('lv-compe')
-require('lv-barbar')
-require('lv-dashboard')
-require('lv-telescope')
-require('lv-gitsigns')
-require('lv-nvimtree')
-require('lv-treesitter')
-require('lv-autopairs')
-require('lv-rnvimr')
-require('lv-which-key')
-require('lv-easymotion')
+require "default-config"
+require "keymappings"
+local status_ok, _ = pcall(vim.cmd, "luafile " .. CONFIG_PATH .. "/lv-config.lua")
+if not status_ok then
+  print "something is wrong with your lv-config"
+end
+require "plugins"
+vim.g.colors_name = O.colorscheme -- Colorscheme must get called after plugins are loaded or it will break new installs.
+require "settings"
+require "lv-utils"
 
--- TODO is there a way to do this without vimscript
-vim.cmd('source ~/.config/nvim/vimscript/functions.vim')
-
--- LSP
-require('lsp')
-require('lsp.clangd')
-require('lsp.php-ls')
-require('lsp.dart-ls')
-require('lsp.lua-ls')
-require('lsp.bash-ls')
-require('lsp.go-ls')
-require('lsp.js-ts-ls')
-require('lsp.python-ls')
-require('lsp.rust-ls')
-require('lsp.json-ls')
-require('lsp.yaml-ls')
-require('lsp.terraform-ls')
-require('lsp.vim-ls')
-require('lsp.graphql-ls')
-require('lsp.docker-ls')
-require('lsp.html-ls')
-require('lsp.css-ls')
-require('lsp.emmet-ls')
-require('lsp.efm-general-ls')
-require('lsp.latex-ls')
-require('lsp.svelte-ls')
--- require('lsp.tailwindcss-ls')
-require('lsp.ruby-ls')
-require('lsp.kotlin-ls')
-require('lsp.vue-ls')
-require('lsp.angular-ls')
-
+-- TODO: these guys need to be in language files
+-- require "lsp"
+-- if O.lang.emmet.active then
+--   require "lsp.emmet-ls"
+-- end
+-- if O.lang.tailwindcss.active then
+--   require "lsp.tailwind

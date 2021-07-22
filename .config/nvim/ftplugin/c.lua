@@ -1,3 +1,23 @@
+O.formatters.filetype["c"] = {
+  function()
+    return {
+      exe = O.lang.c.formatter.exe,
+      args = O.lang.c.formatter.args,
+      stdin = not (O.lang.c.formatter.stdin ~= nil),
+    }
+  end,
+}
+O.formatters.filetype["cpp"] = O.formatters.filetype["c"]
+
+require("formatter.config").set_defaults {
+  logging = false,
+  filetype = O.formatters.filetype,
+}
+
+if require("lv-utils").check_lsp_client_active "clangd" then
+  return
+end
+
 local clangd_flags = { "--background-index" }
 
 if O.lang.clang.cross_file_rename then
