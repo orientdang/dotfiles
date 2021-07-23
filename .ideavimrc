@@ -12,6 +12,9 @@ set scrolloff=3
 set sidescrolloff=4
 imap jk <Esc>
 imap kj <Esc>
+nnoremap i zzi
+nnoremap o zzo
+nnoremap a zza
 
 "-------------------------------------------------------------------------------
 " IdeaVim Plugin Emulations
@@ -37,6 +40,9 @@ vnoremap > >gv
 " More like quick definition -- shows source in pop-up
 nnoremap gD :action QuickImplementations<CR>
 nnoremap gr :action Refactorings.QuickListPopupAction<CR>
+nnoremap <Space>o :action OptimizeImports<CR>
+nnoremap <Space>o :action OptimizeImports<CR>
+nnoremap <Space>f :action ReformatCode<CR>
 
 " move line up/down
 vnoremap J :m +1<CR>V
@@ -46,5 +52,8 @@ vnoremap K :m -2<CR>V
 nmap <Tab> :action NextTab<CR>
 nmap <S-Tab> :action PreviousTab<CR>
 
-" ss{char} to use easymotion
+" Easymotion config
 nmap s \\
+
+" NERDTree config
+nmap <Space>e :NERDTreeToggle<CR>
