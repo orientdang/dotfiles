@@ -1,3 +1,4 @@
+let mapleader = " "
 set number relativenumber
 set idearefactormode=keep
 set ideajoin
@@ -12,9 +13,34 @@ set scrolloff=3
 set sidescrolloff=4
 imap jk <Esc>
 imap kj <Esc>
+imap jj <Esc>
 nnoremap i zzi
 nnoremap o zzo
 nnoremap a zza
+set clipboard+=unnamed
+
+" Window
+nnoremap <Space>sp :action SplitVertically<cr>
+nnoremap <Space>hsp :action SplitHorizontally<cr>
+nnoremap <Space>vsp :action SplitVertically<cr>
+
+" Refactor
+vmap <leader>rm :action ExtractMethod<CR>
+vmap <leader>rv :action IntroduceVariable<cr>
+nnoremap <leader>rv :action IntroduceVariable<cr>
+nnoremap <leader>rn :action RenameElement<cr>
+nnoremap <leader>rf :action RenameFile<cr>
+nnoremap <leader>rv :action IntroduceVariable<cr>
+nnoremap <leader>rs :action ExtractSuperclass<cr>
+nnoremap <leader>ri :action Inline<cr>
+nnoremap <leader>W :action CloseAllEditorsButActive<cr>
+
+" Search
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader>fr :action ReplaceInPath<CR>
+vmap <leader>fg :action FindInPath<CR>
+vmap <leader>fl :action FindUsagesInFile<CR>
+vmap <leader>fr :action ReplaceInPath<CR>
 
 "-------------------------------------------------------------------------------
 " IdeaVim Plugin Emulations
@@ -23,6 +49,7 @@ set surround
 set easymotion
 set NERDTree
 set highlightedyank
+set visualbell
 
 " Yank from cursor to end of line, to be consistent with C and D.
 nnoremap Y y$
@@ -40,9 +67,10 @@ vnoremap > >gv
 " More like quick definition -- shows source in pop-up
 nnoremap gD :action QuickImplementations<CR>
 nnoremap gr :action Refactorings.QuickListPopupAction<CR>
+
+" ReformatCode
 nnoremap <Space>o :action OptimizeImports<CR>
-nnoremap <Space>o :action OptimizeImports<CR>
-nnoremap <Space>f :action ReformatCode<CR>
+nnoremap <Space>l :action ReformatCode<CR>
 
 " move line up/down
 vnoremap J :m +1<CR>V
@@ -53,7 +81,16 @@ nmap <Tab> :action NextTab<CR>
 nmap <S-Tab> :action PreviousTab<CR>
 
 " Easymotion config
-nmap s \\
+nmap s <leader><leader>
+
+" It's a fast-moving world these days -- does your scrolling keep up?
+noremap <C-k> 3<C-y>
+noremap <C-j> 3<C-e>
+
+" Yank from cursor to end of line, to be consistent with C and D.
+nnoremap Y y$
 
 " NERDTree config
-nmap <Space>e :NERDTreeToggle<CR>
+nmap <leader>ne :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
+
