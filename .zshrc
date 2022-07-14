@@ -126,6 +126,9 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Enable thefuck
+eval $(thefuck --alias fuck)
+
 # configure to use Neo Vim as a editor
 alias vim='nvim'
 export EDITOR='nvim'
@@ -149,3 +152,5 @@ unset __conda_setup
 
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+[ -s "/Users/dangnh/.scm_breeze/scm_breeze.sh" ] && source "/Users/dangnh/.scm_breeze/scm_breeze.sh"

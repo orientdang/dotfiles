@@ -27,3 +27,5 @@ export PATH="$PATH:$HOME/Library/Python/3.9/bin"
 export SPARK_HOME="$HOME/spark-3.1.2-bin-hadoop3.2/"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+
+[ -s "/Users/dangnh/.scm_breeze/scm_breeze.sh" ] && source "/Users/dangnh/.scm_breeze/scm_breeze.sh"
